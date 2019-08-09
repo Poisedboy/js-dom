@@ -1,4 +1,5 @@
 //Calculator
+
 const display = document.querySelector('.calculator .display')
 
 document.querySelectorAll('.digits button').forEach( digit => digit.addEventListener('click', digitPressed))
@@ -11,8 +12,11 @@ document.querySelectorAll('.opers button').forEach( oper => oper.addEventListene
 
 
 function operPressed(ev) {
+    if (isNaN(display.value[display.value.length - 1])) {
+        display.value = display.value.substr(0, display.value.length - 1);
+    }
+
     display.value += ev.target.innerText;
-//    if
 }
 
 document.querySelector('.equal').addEventListener('click', equalPressed);
